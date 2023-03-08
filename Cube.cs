@@ -8,7 +8,8 @@ namespace TBO_Rubiks
 {
     internal class Cube
     {
-        public int LargeurTuile { get; set; } = 2;
+        public int LargeurTuile { get; set; } = 5;
+        public int HauteurTuile { get; set; } = 3;
         public Face Top { get; set; } = new Face("W");
         public Face Bottom { get; set; } = new Face("Y");
         public Face Front { get; set; } = new Face("R");
@@ -18,21 +19,21 @@ namespace TBO_Rubiks
 
         public Cube()
         {
-            Top = new Face("W", LargeurTuile);
-            Bottom = new Face("Y", LargeurTuile);
-            Front = new Face("R", LargeurTuile);
-            Back = new Face("O", LargeurTuile);
-            Left = new Face("G", LargeurTuile);
-            Right = new Face("B", LargeurTuile);
+            Top = new Face("W", LargeurTuile, HauteurTuile);
+            Bottom = new Face("Y", LargeurTuile, HauteurTuile);
+            Front = new Face("R", LargeurTuile, HauteurTuile);
+            Back = new Face("O", LargeurTuile, HauteurTuile);
+            Left = new Face("G", LargeurTuile, HauteurTuile);
+            Right = new Face("B", LargeurTuile, HauteurTuile);
         }
         public void Display()
         {
             Top.Display(3 * LargeurTuile, 1);
-            Left.Display(0, 4);
-            Front.Display(3 * LargeurTuile, 4);
-            Right.Display(3 * 2 * LargeurTuile, 4);
-            Back.Display(3 * 3 * LargeurTuile, 4);
-            Bottom.Display(3 * LargeurTuile, 7);
+            Left.Display(0, 1 + (3 * HauteurTuile));
+            Front.Display(3 * LargeurTuile, 1+(3*HauteurTuile));
+            Right.Display(3 * 2 * LargeurTuile, 1 + (3 * HauteurTuile));
+            Back.Display(3 * 3 * LargeurTuile, 1 + (3 * HauteurTuile));
+            Bottom.Display(3 * LargeurTuile, 1 + (2*3 * HauteurTuile));
         }
     }
 

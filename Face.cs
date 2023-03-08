@@ -11,9 +11,11 @@ namespace TBO_Rubiks
     {
         public string[,] Couleurs { get; set; } = new string[3, 3];
         public int LargeurTuile { get; set; }
-        public Face(string couleur = "W", int largeurTuile = 2)
+        public int HauteurTuile { get; set; }
+        public Face(string couleur = "W", int largeurTuile = 2, int hauteurTuile = 2)
         {
             LargeurTuile = largeurTuile;
+            HauteurTuile = hauteurTuile;
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
@@ -28,41 +30,69 @@ namespace TBO_Rubiks
             //Tuile 1
             Console.SetCursorPosition(x, y);
             Console.BackgroundColor = GetColor(Couleurs[0, 0]);
-            Console.WriteLine(new string(' ', LargeurTuile));
+            for (int i = 0; i < HauteurTuile; i++)
+            {
+                Console.Write(new string(' ', LargeurTuile));
+            }
+
             //Tuile 2
             Console.SetCursorPosition(x + LargeurTuile, y);
             Console.BackgroundColor = GetColor(Couleurs[0, 1]);
-            Console.WriteLine(new string(' ', LargeurTuile));
+            for (int i = 0; i < HauteurTuile; i++)
+            {
+                Console.Write(new string(' ', LargeurTuile));
+            }
             //Tuile 3
             Console.SetCursorPosition(x + (2 * LargeurTuile), y);
             Console.BackgroundColor = GetColor(Couleurs[0, 2]);
-            Console.WriteLine(new string(' ', LargeurTuile));
+            for (int i = 0; i < HauteurTuile; i++)
+            {
+                Console.Write(new string(' ', LargeurTuile));
+            }
             //Tuile 4
-            Console.SetCursorPosition(x, y + 1);
+            Console.SetCursorPosition(x, y + HauteurTuile);
             Console.BackgroundColor = GetColor(Couleurs[1, 0]);
-            Console.WriteLine(new string(' ', LargeurTuile));
+            for (int i = 0; i < HauteurTuile; i++)
+            {
+                Console.Write(new string(' ', LargeurTuile));
+            }
             //Tuile 5
-            Console.SetCursorPosition(x + LargeurTuile, y + 1);
+            Console.SetCursorPosition(x + LargeurTuile, y + HauteurTuile);
             Console.BackgroundColor = GetColor(Couleurs[1, 1]);
-            Console.WriteLine(new string(' ', LargeurTuile));
+            for (int i = 0; i < HauteurTuile; i++)
+            {
+                Console.Write(new string(' ', LargeurTuile));
+            }
             //Tuile 6
-            Console.SetCursorPosition(x + (2 * LargeurTuile), y + 1);
+            Console.SetCursorPosition(x + (2 * LargeurTuile), y + HauteurTuile);
             Console.BackgroundColor = GetColor(Couleurs[1, 2]);
-            Console.WriteLine(new string(' ', LargeurTuile));
+            for (int i = 0; i < HauteurTuile; i++)
+            {
+                Console.Write(new string(' ', LargeurTuile));
+            }
             //Tuile 7
-            Console.SetCursorPosition(x, y + 2);
+            Console.SetCursorPosition(x, y + 2 * HauteurTuile);
             Console.BackgroundColor = GetColor(Couleurs[2, 0]);
-            Console.WriteLine(new string(' ', LargeurTuile));
+            for (int i = 0; i < HauteurTuile; i++)
+            {
+                Console.Write(new string(' ', LargeurTuile));
+            }
             //Tuile 8
-            Console.SetCursorPosition(x + LargeurTuile, y + 2);
+            Console.SetCursorPosition(x + LargeurTuile, y + 2 * HauteurTuile);
             Console.BackgroundColor = GetColor(Couleurs[2, 1]);
-            Console.WriteLine(new string(' ', LargeurTuile));
+            for (int i = 0; i < HauteurTuile; i++)
+            {
+                Console.Write(new string(' ', LargeurTuile));
+            }
             //Tuile 9
-            Console.SetCursorPosition(x + (2 * LargeurTuile), y + 2);
+            Console.SetCursorPosition(x + (2 * LargeurTuile), y + 2 * HauteurTuile);
             Console.BackgroundColor = GetColor(Couleurs[2, 2]);
-            Console.WriteLine(new string(' ', LargeurTuile));
+            for (int i = 0; i < HauteurTuile; i++)
+            {
+                Console.Write(new string(' ', LargeurTuile));
+            }
 
-          
+
         }
         public ConsoleColor GetColor(string codeCouleur)
         {
