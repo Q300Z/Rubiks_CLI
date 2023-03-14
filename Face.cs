@@ -28,68 +28,77 @@ namespace TBO_Rubiks
         public void Display(int x, int y)
         {
             //Tuile 1
-            Console.SetCursorPosition(x, y);
+
             Console.BackgroundColor = GetColor(Couleurs[0, 0]);
             for (int i = 0; i < HauteurTuile; i++)
             {
-                Console.Write(new string(' ', LargeurTuile));
+                Console.SetCursorPosition(x, y + i);
+                Console.Write(new string('A', LargeurTuile));
             }
 
             //Tuile 2
-            Console.SetCursorPosition(x + LargeurTuile, y);
+
             Console.BackgroundColor = GetColor(Couleurs[0, 1]);
             for (int i = 0; i < HauteurTuile; i++)
             {
-                Console.Write(new string(' ', LargeurTuile));
+                Console.SetCursorPosition(x + LargeurTuile, y + i);
+                Console.Write(new string('B', LargeurTuile));
             }
             //Tuile 3
-            Console.SetCursorPosition(x + (2 * LargeurTuile), y);
+
             Console.BackgroundColor = GetColor(Couleurs[0, 2]);
             for (int i = 0; i < HauteurTuile; i++)
             {
-                Console.Write(new string(' ', LargeurTuile));
+                Console.SetCursorPosition(x + (2 * LargeurTuile), y + i);
+                Console.Write(new string('C', LargeurTuile));
             }
             //Tuile 4
-            Console.SetCursorPosition(x, y + HauteurTuile);
+
             Console.BackgroundColor = GetColor(Couleurs[1, 0]);
             for (int i = 0; i < HauteurTuile; i++)
             {
-                Console.Write(new string(' ', LargeurTuile));
+                Console.SetCursorPosition(x, y + HauteurTuile + i);
+                Console.Write(new string('D', LargeurTuile));
             }
             //Tuile 5
-            Console.SetCursorPosition(x + LargeurTuile, y + HauteurTuile);
+
             Console.BackgroundColor = GetColor(Couleurs[1, 1]);
             for (int i = 0; i < HauteurTuile; i++)
             {
-                Console.Write(new string(' ', LargeurTuile));
+                Console.SetCursorPosition(x + LargeurTuile, y + HauteurTuile + i);
+                Console.Write(new string('E', LargeurTuile));
             }
             //Tuile 6
-            Console.SetCursorPosition(x + (2 * LargeurTuile), y + HauteurTuile);
+
             Console.BackgroundColor = GetColor(Couleurs[1, 2]);
             for (int i = 0; i < HauteurTuile; i++)
             {
-                Console.Write(new string(' ', LargeurTuile));
+                Console.SetCursorPosition(x + (2 * LargeurTuile), y + HauteurTuile + i);
+                Console.Write(new string('F', LargeurTuile));
             }
             //Tuile 7
-            Console.SetCursorPosition(x, y + 2 * HauteurTuile);
+
             Console.BackgroundColor = GetColor(Couleurs[2, 0]);
             for (int i = 0; i < HauteurTuile; i++)
             {
-                Console.Write(new string(' ', LargeurTuile));
+                Console.SetCursorPosition(x, y + 2 * HauteurTuile + i);
+                Console.Write(new string('J', LargeurTuile));
             }
             //Tuile 8
-            Console.SetCursorPosition(x + LargeurTuile, y + 2 * HauteurTuile);
+
             Console.BackgroundColor = GetColor(Couleurs[2, 1]);
             for (int i = 0; i < HauteurTuile; i++)
             {
-                Console.Write(new string(' ', LargeurTuile));
+                Console.SetCursorPosition(x + LargeurTuile, y + 2 * HauteurTuile + i);
+                Console.Write(new string('K', LargeurTuile));
             }
             //Tuile 9
-            Console.SetCursorPosition(x + (2 * LargeurTuile), y + 2 * HauteurTuile);
+
             Console.BackgroundColor = GetColor(Couleurs[2, 2]);
             for (int i = 0; i < HauteurTuile; i++)
             {
-                Console.Write(new string(' ', LargeurTuile));
+                Console.SetCursorPosition(x + (2 * LargeurTuile), y + 2 * HauteurTuile + i);
+                Console.Write(new string('L', LargeurTuile));
             }
 
 

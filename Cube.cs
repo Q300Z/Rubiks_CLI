@@ -8,8 +8,8 @@ namespace TBO_Rubiks
 {
     internal class Cube
     {
-        public int LargeurTuile { get; set; } = 5;
-        public int HauteurTuile { get; set; } = 3;
+        public int LargeurTuile { get; set; } = 4;
+        public int HauteurTuile { get; set; } = 2;
         public Face Top { get; set; } = new Face("W");
         public Face Bottom { get; set; } = new Face("Y");
         public Face Front { get; set; } = new Face("R");
