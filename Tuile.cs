@@ -6,12 +6,15 @@
         public ConsoleColor ConsoleCouleur { get; set; }
         public int LargeurTuile { get; set; }
         public int HauteurTuile { get; set; }
-        public Tuile(string couleur, int largeurTuile, int hauteurTuile) {
+        public string Lettre { get; set; }
+        public Tuile(string couleur, int largeurTuile, int hauteurTuile, string lettre)
+        {
             Couleur = couleur;
             ConsoleCouleur = GetColor(couleur);
             LargeurTuile = largeurTuile;
             HauteurTuile = hauteurTuile;
-            
+            Lettre = lettre;
+
         }
 
         public ConsoleColor GetColor(string codeCouleur)
@@ -19,11 +22,11 @@
             return codeCouleur switch
             {
                 "W" => ConsoleColor.White,
-                "Y" => ConsoleColor.Blue,
+                "Y" => ConsoleColor.DarkYellow,
                 "G" => ConsoleColor.Green,
                 "R" => ConsoleColor.Red,
-                "O" => ConsoleColor.DarkYellow,
-                "B" => ConsoleColor.Magenta,
+                "O" => ConsoleColor.Magenta,
+                "B" => ConsoleColor.Blue,
                 _ => ConsoleColor.White
             };
         }
@@ -34,7 +37,8 @@
             for (int i = 0; i < HauteurTuile; i++)
             {
                 Console.SetCursorPosition(x, y + i);
-                Console.Write(new string(' ', LargeurTuile));
+                //Console.Write(new string($"{x},{y}", LargeurTuile));
+                Console.Write($"{Lettre} ");
             }
             Console.BackgroundColor = ConsoleColor.Black;
         }
