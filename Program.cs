@@ -4,35 +4,35 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Bienvenue sur le Rubik's Cube");
+            
 
-            Cube cube = new Cube(4, 1);
+            Cube cube = new Cube(6, 2);
 
             while (true)
             {
                 cube.Display();
-
                 var key = Console.ReadKey(true);
                 switch (key.Key)
                 {
                     case ConsoleKey.D:
                         if (key.Modifiers == 0)
                         {
-                            cube.BL();
+                            cube.DL();
                         }
                         else if (key.Modifiers == ConsoleModifiers.Shift)
                         {
-                            cube.BR();
+                            cube.DR();
                         }
                         break;
                     case ConsoleKey.U:
                         if (key.Modifiers == 0)
                         {
-                            cube.TL();
+                            cube.UL();
                         }
                         else if (key.Modifiers == ConsoleModifiers.Shift)
                         {
-                            cube.TR();
+                            cube.UR();
                         }
 
                         break;

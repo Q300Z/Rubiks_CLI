@@ -6,14 +6,14 @@
         public ConsoleColor ConsoleCouleur { get; set; }
         public int LargeurTuile { get; set; }
         public int HauteurTuile { get; set; }
-        public string Lettre { get; set; }
-        public Tuile(string couleur, int largeurTuile, int hauteurTuile, string lettre)
+        //public string Lettre { get; set; }
+        public Tuile(string couleur, int largeurTuile, int hauteurTuile)
         {
             Couleur = couleur;
             ConsoleCouleur = GetColor(couleur);
             LargeurTuile = largeurTuile;
             HauteurTuile = hauteurTuile;
-            Lettre = lettre;
+            //Lettre = lettre;
 
         }
 
@@ -37,8 +37,8 @@
             for (int i = 0; i < HauteurTuile; i++)
             {
                 Console.SetCursorPosition(x, y + i);
-                //Console.Write(new string($"{x},{y}", LargeurTuile));
-                Console.Write($"{Lettre} ");
+                Console.Write(new string(' ', LargeurTuile));
+                //Console.Write($"{Lettre}");
             }
             Console.BackgroundColor = ConsoleColor.Black;
         }
