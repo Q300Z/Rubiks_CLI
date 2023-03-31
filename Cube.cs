@@ -135,21 +135,34 @@
 
         public void UL()
         {
+            UR();
+            UR();
+            UR();
+        }
+        public void UR()
+        {
             var temp = new Tuile[3];
             for (int i = 0; i < 3; i++)
             {
                 temp[i] = Front.Tuiles[i, 0];
-                Front.Tuiles[i, 0] = Right.Tuiles[i, 0];
-                Right.Tuiles[i, 0] = Back.Tuiles[i, 0];
-                Back.Tuiles[i, 0] = Left.Tuiles[i, 0];
-                Left.Tuiles[i, 0] = temp[i];
+                Front.Tuiles[i, 0] = Left.Tuiles[i, 0];
+                Left.Tuiles[i, 0] = Back.Tuiles[i, 0];
+                Back.Tuiles[i, 0] = Right.Tuiles[i, 0];
+                Right.Tuiles[i, 0] = temp[i];
             }
-        }
-        public void UR()
-        {
-            UL();
-            UL();
-            UL();
+            //arrete
+            var temp1 = Top.Tuiles[0, 0];
+            Top.Tuiles[0, 0] = Top.Tuiles[2, 0];
+            Top.Tuiles[2, 0] = Top.Tuiles[2, 2];
+            Top.Tuiles[2, 2] = Top.Tuiles[0, 2];
+            Top.Tuiles[0, 2] = temp1;
+
+            //coin
+            temp1 = Top.Tuiles[1, 0];
+            Top.Tuiles[1, 0] = Top.Tuiles[2, 1];
+            Top.Tuiles[2, 1] = Top.Tuiles[1, 2];
+            Top.Tuiles[1, 2] = Top.Tuiles[0, 1];
+            Top.Tuiles[0, 1] = temp1;
         }
         public void DL()
         {
@@ -157,11 +170,25 @@
             for (int i = 0; i < 3; i++)
             {
                 temp[i] = Front.Tuiles[i, 2];
-                Front.Tuiles[i, 2] = Right.Tuiles[i, 2];
-                Right.Tuiles[i, 2] = Back.Tuiles[i, 2];
-                Back.Tuiles[i, 2] = Left.Tuiles[i, 2];
-                Left.Tuiles[i, 2] = temp[i];
+                Front.Tuiles[i, 2] = Left.Tuiles[i, 2];
+                Left.Tuiles[i, 2] = Back.Tuiles[i, 2];
+                Back.Tuiles[i, 2] = Right.Tuiles[i, 2];
+                Right.Tuiles[i, 2] = temp[i];
             }
+
+            //arrete
+            var temp1 = Bottom.Tuiles[0, 0];
+            Bottom.Tuiles[0, 0] = Bottom.Tuiles[0, 2];
+            Bottom.Tuiles[0, 2] = Bottom.Tuiles[2, 2];
+            Bottom.Tuiles[2, 2] = Bottom.Tuiles[2, 0];
+            Bottom.Tuiles[2, 0] = temp1;
+
+            //coin
+            temp1 = Bottom.Tuiles[1, 0];
+            Bottom.Tuiles[1, 0] = Bottom.Tuiles[0, 1];
+            Bottom.Tuiles[0, 1] = Bottom.Tuiles[1, 2];
+            Bottom.Tuiles[1, 2] = Bottom.Tuiles[2, 1];
+            Bottom.Tuiles[2, 1] = temp1;
         }
         public void DR()
         {
@@ -171,33 +198,11 @@
         }
         public void LL()
         {
-            var front0 = Front.Tuiles[2, 0];
-            var front1 = Front.Tuiles[2, 1];
-            var front2 = Front.Tuiles[2, 2];
-
-            Front.Tuiles[2, 0] = Bottom.Tuiles[2, 0];
-            Front.Tuiles[2, 1] = Bottom.Tuiles[2, 1];
-            Front.Tuiles[2, 2] = Bottom.Tuiles[2, 2];
-
-            Bottom.Tuiles[2, 0] = Back.Tuiles[2, 0];
-            Bottom.Tuiles[2, 1] = Back.Tuiles[2, 1];
-            Bottom.Tuiles[2, 2] = Back.Tuiles[2, 2];
-
-            Back.Tuiles[2, 0] = Top.Tuiles[2, 0];
-            Back.Tuiles[2, 1] = Top.Tuiles[2, 1];
-            Back.Tuiles[2, 2] = Top.Tuiles[2, 2];
-
-            Top.Tuiles[2, 0] = front0;
-            Top.Tuiles[2, 1] = front1;
-            Top.Tuiles[2, 2] = front2;
+            LR();
+            LR();
+            LR();
         }
         public void LR()
-        {
-            LL();
-            LL();
-            LL();
-        }
-        public void RL()
         {
             var front0 = Front.Tuiles[0, 0];
             var front1 = Front.Tuiles[0, 1];
@@ -207,17 +212,69 @@
             Front.Tuiles[0, 1] = Bottom.Tuiles[0, 1];
             Front.Tuiles[0, 2] = Bottom.Tuiles[0, 2];
 
-            Bottom.Tuiles[0, 0] = Back.Tuiles[0, 0];
-            Bottom.Tuiles[0, 1] = Back.Tuiles[0, 1];
-            Bottom.Tuiles[0, 2] = Back.Tuiles[0, 2];
+            Bottom.Tuiles[0, 0] = Back.Tuiles[2, 0];
+            Bottom.Tuiles[0, 1] = Back.Tuiles[2, 1];
+            Bottom.Tuiles[0, 2] = Back.Tuiles[2, 2];
 
-            Back.Tuiles[0, 0] = Top.Tuiles[0, 0];
-            Back.Tuiles[0, 1] = Top.Tuiles[0, 1];
-            Back.Tuiles[0, 2] = Top.Tuiles[0, 2];
+            Back.Tuiles[2, 0] = Top.Tuiles[0, 0];
+            Back.Tuiles[2, 1] = Top.Tuiles[0, 1];
+            Back.Tuiles[2, 2] = Top.Tuiles[0, 2];
 
             Top.Tuiles[0, 0] = front0;
             Top.Tuiles[0, 1] = front1;
             Top.Tuiles[0, 2] = front2;
+
+            //Rotation Gauche
+            //arrete
+            var temp = Left.Tuiles[0, 0];
+            Left.Tuiles[0, 0] = Left.Tuiles[2, 0];
+            Left.Tuiles[2, 0] = Left.Tuiles[2, 2];
+            Left.Tuiles[2, 2] = Left.Tuiles[0, 2];
+            Left.Tuiles[0, 2] = temp;
+
+            //coin
+            temp = Left.Tuiles[1, 0];
+            Left.Tuiles[1, 0] = Left.Tuiles[2, 1];
+            Left.Tuiles[2, 1] = Left.Tuiles[1, 2];
+            Left.Tuiles[1, 2] = Left.Tuiles[0, 1];
+            Left.Tuiles[0, 1] = temp;
+        }
+        public void RL()
+        {
+            var front0 = Front.Tuiles[2, 0];
+            var front1 = Front.Tuiles[2, 1];
+            var front2 = Front.Tuiles[2, 2];
+
+            Front.Tuiles[2, 0] = Bottom.Tuiles[2, 0];
+            Front.Tuiles[2, 1] = Bottom.Tuiles[2, 1];
+            Front.Tuiles[2, 2] = Bottom.Tuiles[2, 2];
+
+            Bottom.Tuiles[2, 0] = Back.Tuiles[0, 0];
+            Bottom.Tuiles[2, 1] = Back.Tuiles[0, 1];
+            Bottom.Tuiles[2, 2] = Back.Tuiles[0, 2];
+
+            Back.Tuiles[0, 0] = Top.Tuiles[2, 0];
+            Back.Tuiles[0, 1] = Top.Tuiles[2, 1];
+            Back.Tuiles[0, 2] = Top.Tuiles[2, 2];
+
+            Top.Tuiles[2, 0] = front0;
+            Top.Tuiles[2, 1] = front1;
+            Top.Tuiles[2, 2] = front2;
+
+            //Rotation Droite
+            //arrete
+            var temp = Right.Tuiles[0, 0];
+            Right.Tuiles[0, 0] = Right.Tuiles[0, 2];
+            Right.Tuiles[0, 2] = Right.Tuiles[2, 2];
+            Right.Tuiles[2, 2] = Right.Tuiles[2, 0];
+            Right.Tuiles[2, 0] = temp;
+
+            //coin
+            temp = Right.Tuiles[1, 0];
+            Right.Tuiles[1, 0] = Right.Tuiles[0, 1];
+            Right.Tuiles[0, 1] = Right.Tuiles[1, 2];
+            Right.Tuiles[1, 2] = Right.Tuiles[2, 1];
+            Right.Tuiles[2, 1] = temp;
         }
         public void RR()
         {

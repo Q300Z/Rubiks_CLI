@@ -14,8 +14,8 @@
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    //Tuiles[i, j] = new Tuile(couleur, largeurTuile, hauteurTuile, $" {i},{j}  ");
-                    Tuiles[i, j] = new Tuile(couleur, largeurTuile, hauteurTuile);
+                   Tuiles[i, j] = new Tuile(couleur, largeurTuile, hauteurTuile, $" {i},{j}  ");
+                    //Tuiles[i, j] = new Tuile(couleur, largeurTuile, hauteurTuile);
                 }
             }
             LargeurTuile = largeurTuile;

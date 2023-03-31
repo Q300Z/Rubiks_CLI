@@ -7,7 +7,7 @@
             Console.WriteLine("Bienvenue sur le Rubik's Cube");
             
 
-            Cube cube = new Cube(6, 2);
+            Cube cube = new Cube(6, 1);
 
             while (true)
             {
